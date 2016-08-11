@@ -1,0 +1,26 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+
+[[plugins]]
+repo = 'Shougo/vimshell'
+
+[[plugins]]
+repo = 'Shougo/vimfiler'
+
+[[plugins]]
+repo = 'Lokaltog/vim-easymotion'
+
+[[plugins]]
+repo = 'Shougo/neocomplete'
+
+[[plugins]]
+repo = 'Shougo/neocomplcache'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'

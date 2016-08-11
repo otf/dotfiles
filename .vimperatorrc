@@ -1,0 +1,88 @@
+" vimperator pluginの管理
+source ~/.vimperator/vimppm/plugin/vimppm/vimppm.js
+vimppm 'caret-hint.js'
+vimppm 'caret-hints-mod2.js'
+
+" ツールバーはアドオンとタブのみ表示
+"set gui=addons,nobookmarks,nomenu,nonavigation,tas
+
+" スクロールの端などの際に出るbeepをoff
+beep off
+" エラー時にベルを鳴らさない
+" set noerrorbells
+
+" Firefoxのショートカットキーを無効にする
+map <C-j> <Nop>
+map <C-f> <Nop>
+
+" h,lに前のタブ,次のタブを割り当てる
+map h <C-PageUp>
+map l <C-PageDown>
+
+" H/Lに戻る/進むを割り当てる
+map H <A-Left>
+map L <A-Right>
+
+" j,kによる上下スクロールの移動量を6倍に設定
+noremap j 5<C-e>
+noremap k 5<C-y>
+
+" Uで最近閉じたタブを表示する
+map U :undo<CR>
+
+" R で.vimperatorrcを再読込み
+map R :source ~/_vimperatorrc<CR>
+
+" Ctrl+aで全選択になるようにする
+noremap <C-a> i<C-a>
+inoremap <C-a> <insert><C-a><insert>
+
+" 選択文字列ののコピーを <C-c> に割り当て
+map <C-c> :echo Yank!<CR>Y
+
+" エラー色
+hi ErrorMsg color:white; background-color: #ec6aa1;
+
+" 検索時、大文字が含まれている場合にのみ case sensitiveにする
+set ignorecase
+set smartcase
+
+" デフォルトの検索エンジン
+set defsearch=google
+
+" sでぐぐる
+nnoremap s :!fcitx-remote -c<cr>q:open<Space>google<Space>
+nnoremap S :!fcitx-remote -c<cr>q:tabopen<Space>google<Space>
+
+" 選択文字列でぐぐる(マウスとVISUALモードの選択時に対応)
+" nmap S <C-c>:tabopen<Space>google<Space><C-v><CR>
+vmap S <C-c><Esc><Esc>:tabopen<Space>google<Space><C-v><CR>
+
+" コマンドモードではIMEをOFFに
+style! -name=commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
+noremap <silent> f :!fcitx-remote -c<cr>qf
+noremap <silent> F :!fcitx-remote -c<cr>qF
+noremap <silent> : :!fcitx-remote -c<cr>q:
+
+" インサートモードで日本語入力
+noremap <silent> gi :!fcitx-remote -o<cr>qgi
+
+" 入力欄に自動フォーカスしない
+set focuscontent
+
+" ヒントに使用する文字。ここの設定は0からスタートだが表示は1から
+set hintchars=asdfjkl
+
+" ヒント表示色
+highlight Hint font-family: Arial; font-size: 20px; font-weight: bold; text-shadow: -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black, 1px 1px 2px black; color: #99cb81;
+highlight HintElem color: gray; background-color: #a1e4e6;
+highlight HintActive color: black; background-color: #ff8700;
+
+" キャレット幅を変更
+set! ui.caretWidth=2
+
+command transrate javascript zol_bod_google_translator.ToolBarTranslatorClick()
+noremap <C-y> :transrate<CR>
+
+" 読み込み完了メッセージ
+echo "Loaded from vimperatorrc."

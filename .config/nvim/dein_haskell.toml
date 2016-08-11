@@ -1,0 +1,12 @@
+[[plugins]]
+repo = 'kana/vim-filetype-haskell'
+
+[[plugins]]
+repo = 'eagletmt/ghcmod-vim'
+
+[[plugins]]
+repo = 'ujihisa/neco-ghc'
+
+[[plugins]]
+repo = 'osyo-manga/vim-watchdogs'
+

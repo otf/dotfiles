@@ -1,0 +1,16 @@
+Config { font = "xft:Noto Sans UI:normal:size=18:antialias=true"
+       , bgColor = "#E0E0E0"
+       , fgColor = "#657b83"
+       , alpha = 0,
+       , position = Top
+       , lowerOnStart = False
+       , persistent = False
+       , commands = [ Run Cpu [ "-t", "CPU: <total>%", "-L", "50", "-H", "50"] 10
+                      , Run Memory  ["-t", "MEM: <usedratio>%"] 10
+                      , Run Battery ["Bat0", "-t", "<left>%", "--low", "#da532c", "--normal", "#00a300", "--high", "#00a300"] 300
+                      , Run Date "%H:%M%p" "date" 10
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "}{ %date%  %battery%  "
+}

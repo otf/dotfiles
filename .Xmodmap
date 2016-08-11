@@ -1,0 +1,10 @@
+keycode 66 = Control_L NoSymbol Control_L
+
+keycode 9 = Zenkaku_Hankaku
+keycode 49 = Escape
+
+clear mod3
+add mod3 = Henkan_Mode
+
+clear Lock 
+add Control = Control_L
