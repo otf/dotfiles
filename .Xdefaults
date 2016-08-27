@@ -2,7 +2,7 @@ URxvt*shading: 30
 URxvt*inheritPixmap: true
 URxvt*scrollStyle: rxvt
 URxvt*scrollBar: false
-URxvt*font: xft:Ricty:size=12:antialias=true
+URxvt*font: xft:Ricty:size=18:antialias=true
 
 #define S_base03        #002b36
 #define S_base02        #073642

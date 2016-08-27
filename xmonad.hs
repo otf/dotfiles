@@ -21,8 +21,8 @@ myFont = "Roboto:normal:size=16:antialias=true"
 
 dzenMargin = 0
 leftDzenWidth = 1000
-rightDzenWidth = 3000 - (dzenMargin * 2) - leftDzenWidth
-dzenHeight = 64
+rightDzenWidth = 1920 - (dzenMargin * 2) - leftDzenWidth
+dzenHeight = 32
 
 dzenLeftCommand = "dzen2"
   ++ " -p"
@@ -55,7 +55,7 @@ main = do
       modMask = modm
     , terminal = "urxvt"
     , startupHook = myStartupHook
-    , borderWidth = 22
+    , borderWidth = 6
     , normalBorderColor = colorNormalBorderColor
     , focusedBorderColor = colorFocusedBorderColor
     , layoutHook = toggleLayouts fullLayout normalLayout
@@ -98,4 +98,4 @@ fullLayout = avoidStruts $ Full
 
 normalLayout = 
   avoidStruts $
-  (smartSpacing 18 $ ResizableTall 1 (3/100) (3/5) [])
+  (smartSpacing 8 $ ResizableTall 1 (3/100) (3/5) [])

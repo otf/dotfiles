@@ -1,11 +1,23 @@
 #!/bin/sh
 
-sudo sh -c 'echo \'\n\
-[archlinuxfr]\n\
-SigLevel = Never\n\
-Server = http://repo.archlinux.fr/$arch\n\' >> /etc/pacman.conf'
+pacman -S wget
 
-sudo pacman --sync --refresh --noconfirm yaourt
+if ! which yaourt 1>/dev/null 2>&1 ; then
+  wget https://aur.archlinux.org/cgit/aur.git/snapshot/package-query.tar.gz
+  tar -xvf package-query.tar.gz && rm package-query.tar.gz
+  sh -c 'cd package-query && makepkg -si' || { rm -r package-query && fail ; }
+  rm -r package-query
+  wget https://aur.archlinux.org/cgit/aur.git/snapshot/yaourt.tar.gz || fail
+  tar -xvf yaourt.tar.gz && rm yaourt.tar.gz
+  sh -c 'cd yaourt && makepkg -si' || { rm -r yaourt && fail ; }
+  rm -r yaourt
+fi
+
+if ! which yaourt 1>/dev/null 2>&1 ; then
+  echo 'could not install yaourt'
+  exit 1
+fi
+
 yaourt -Syua --noconfirm
 yaourt -S --noconfirm otf-ipaexfont ttf-roboto-font ttf-ricty
 yaourt -S --noconfirm zsh zsh-completions
@@ -21,10 +33,10 @@ yaourt -S --noconfirm firefox
 yaourt -S --noconfirm git tk gsfonts perl-term-readkey
 yaourt -S --noconfirm gnu-netcat
 
-ln -s ./.xinitrc ~/.xinitrc
-mkdir ~/.xmonad ; ln -s ./xmonad.hs ~/.xmonad/xmonad.hs
-ln -s ./.Xdefaults ~/.Xdefaults
-mkdir ~/.conky ; ln -s ./.conkyrc ~/.conkyrc
-ln -s ./.Xmodmap ~/.Xmodmap
-ln -s ./.zshrc ~/.zshrc
-ln -s ./.vimperatorrc ~/.vimperatorrc
+for f in .??*
+do
+    [ "$f" = ".git" ] && continue
+    [ "$f" = `basename $0` ] && continue
+    ln -snfv `pwd`"/$f" "$HOME"/"$f"
+done
+

@@ -1,2 +1,0 @@
-## Install
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/otf/dotfiles/master/install.sh)"
