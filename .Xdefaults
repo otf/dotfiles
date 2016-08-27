@@ -1,4 +1,3 @@
-Xft.dpi: 192
 URxvt*shading: 30
 URxvt*inheritPixmap: true
 URxvt*scrollStyle: rxvt

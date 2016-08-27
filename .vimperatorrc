@@ -1,7 +1,4 @@
 " vimperator pluginの管理
-source ~/.vimperator/vimppm/plugin/vimppm/vimppm.js
-vimppm 'caret-hint.js'
-vimppm 'caret-hints-mod2.js'
 
 " ツールバーはアドオンとタブのみ表示
 "set gui=addons,nobookmarks,nomenu,nonavigation,tas
@@ -31,7 +28,7 @@ noremap k 5<C-y>
 map U :undo<CR>
 
 " R で.vimperatorrcを再読込み
-map R :source ~/_vimperatorrc<CR>
+map R :source ~/.vimperatorrc<CR>
 
 " Ctrl+aで全選択になるようにする
 noremap <C-a> i<C-a>

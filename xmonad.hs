@@ -18,7 +18,6 @@ colorFocusedBorderColor = "#ECF0F1"
 colorDzenBackground = colorFocusedBorderColor
 colorDzenForeground = "#67809F"
 myFont = "Roboto:normal:size=16:antialias=true"
--- myFont = "xft:Noto Sans UI:normal:size=18:antialias=true"
 
 dzenMargin = 0
 leftDzenWidth = 1000
@@ -36,7 +35,7 @@ dzenLeftCommand = "dzen2"
   ++ " -fn '" ++ myFont ++ "'"
   ++ " -ta l"
 
-dzenRightCommand = "conky -c ~/.conky/bar"
+dzenRightCommand = "conky -c ~/.conkyrc"
   ++ "| dzen2 "
   ++ " -x '" ++ (show $ dzenMargin + leftDzenWidth) ++ "'"
   ++ " -y '" ++ (show dzenMargin) ++ "'"
@@ -48,7 +47,6 @@ dzenRightCommand = "conky -c ~/.conky/bar"
   ++ " -ta r"
 
 main = do
-  -- xmproc <- spawnPipe "xmobar ~/.xmobarrc"
   dzenLeft <- spawnPipe dzenLeftCommand
   dzenRight <- spawnPipe dzenRightCommand
 
@@ -71,11 +69,8 @@ main = do
       -- Full screen
       ((modm, xK_f), sendMessage ToggleLayout) 
 
-      -- Lock screen 
-      , ((modm .|. shiftMask, xK_l), spawn "xscreensaver-command -lock") 
-
       -- restart xmonad
-      , ((mod4Mask, xK_q), spawn "killall dzen2 && killall xscreensaver && killall feh && xmonad --restart")
+      , ((mod4Mask, xK_q), spawn "killall dzen2 && killall feh && xmonad --restart")
     ]
 
 myLogHook :: Handle -> X ()
@@ -95,7 +90,6 @@ myLogHook h = dynamicLogWithPP $ defaultPP
 
 myStartupHook = do
   -- spawn "hhp" -- hide mouse cursor
-  spawn "xscreensaver -nosplash"
   spawn "feh --bg-fill ~/Pictures/wallpapers/wallpaper-gradient.jpg"
   -- spawn "compton --config ~/.config/compton/compton.conf -b"
 

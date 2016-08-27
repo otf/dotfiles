@@ -1,0 +1,9 @@
+background yes
+out_to_console yes
+out_to_x no
+update_interval 1
+use_xft yes
+times_in_seconds true
+
+TEXT
+${time %H:%M}  
