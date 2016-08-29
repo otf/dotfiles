@@ -90,7 +90,7 @@ myLogHook h = dynamicLogWithPP $ defaultPP
 
 myStartupHook = do
   -- spawn "hhp" -- hide mouse cursor
-  spawn "feh --bg-fill ~/Pictures/wallpapers/wallpaper-gradient.jpg"
+  spawn "feh --bg-fill ~/Pictures/wallpapers/wallpaper-gradient.png"
   -- spawn "compton --config ~/.config/compton/compton.conf -b"
 
 fullLayout = avoidStruts $ Full
