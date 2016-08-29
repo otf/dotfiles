@@ -68,6 +68,9 @@ main = do
     [ 
       -- Full screen
       ((modm, xK_f), sendMessage ToggleLayout) 
+      
+      -- Dmenu
+      , ((modm, xK_p), spawn "~/.dmenurc") 
 
       -- restart xmonad
       , ((mod4Mask, xK_q), spawn "killall dzen2 && killall feh && xmonad --restart")
