@@ -32,6 +32,7 @@ yaourt -S --noconfirm xfreerdp
 yaourt -S --noconfirm firefox
 yaourt -S --noconfirm git tk gsfonts perl-term-readkey
 yaourt -S --noconfirm gnu-netcat
+yaourt -S --noconfirm zsh-autosuggestions
 
 for f in .??*
 do

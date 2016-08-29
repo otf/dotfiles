@@ -41,6 +41,3 @@ alias filer="vim +VimFiler"
 # for zsh-autosuggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=243"
-
-# for nvm
-source /usr/share/nvm/init-nvm.sh
