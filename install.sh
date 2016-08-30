@@ -1,6 +1,6 @@
 #!/bin/sh
 
-pacman -S wget
+pacman -S --noconfirm wget
 
 if ! which yaourt 1>/dev/null 2>&1 ; then
   wget https://aur.archlinux.org/cgit/aur.git/snapshot/package-query.tar.gz
