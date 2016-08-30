@@ -58,7 +58,7 @@ main = do
     , borderWidth = 6
     , normalBorderColor = colorNormalBorderColor
     , focusedBorderColor = colorFocusedBorderColor
-    , layoutHook = toggleLayouts fullLayout normalLayout
+    , layoutHook = avoidStruts $ toggleLayouts fullLayout normalLayout
     , manageHook = manageHook defaultConfig <+> manageDocks
     , handleEventHook = handleEventHook defaultConfig <+> docksEventHook
     , logHook = myLogHook dzenLeft
@@ -96,9 +96,8 @@ myStartupHook = do
   spawn "feh --bg-fill ~/Pictures/wallpapers/wallpaper-gradient.png"
   -- spawn "compton --config ~/.config/compton/compton.conf -b"
 
-fullLayout = avoidStruts $ Full
+fullLayout = Full
 --fullLayout = avoidStruts $ noBorders Full
 
 normalLayout = 
-  avoidStruts $
   (smartSpacing 8 $ ResizableTall 1 (3/100) (3/5) [])
